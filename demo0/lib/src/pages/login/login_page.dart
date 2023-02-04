@@ -26,9 +26,12 @@ class _LoginPageState extends State<LoginPage> {
               child: Card(
                 child: SizedBox(
                   height: 200,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [Text("Body")],
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [Text("Body")],
+                    ),
                   ),
                 ),
               ),
