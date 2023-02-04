@@ -16,18 +16,10 @@ class _LoginPageState extends State<LoginPage> {
         title: Text("Login"),
       ),
       body: Container(
-        color: Colors.yellow,
         width: double.infinity,
         height: double.infinity,
         child: Column(
           children: [
-            Text("Box1", style: TextStyle(fontSize: 40)),
-            Text("Box2", style: TextStyle(fontSize: 40)),
-            Text("Box3", style: TextStyle(fontSize: 40)),
-            TextButton(onPressed: (){
-              print("I am lek");
-              Navigator.pushNamed(context, AppRoute.home);
-            }, child: Text("Btn1")),
             Image.asset("assets/images/logo.png")
           ],
         ),
