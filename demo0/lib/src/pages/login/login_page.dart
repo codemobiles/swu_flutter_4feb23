@@ -17,8 +17,8 @@ class _LoginPageState extends State<LoginPage> {
       ),
       body: Container(
         color: Colors.yellow,
-        width: 300,
-        height: 300,
+        width: double.infinity,
+        height: double.infinity,
         child: Text("Box1asdfjas;fj;sajf;saj;l"),
       ),
     );
