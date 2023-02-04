@@ -20,7 +20,13 @@ class _LoginPageState extends State<LoginPage> {
         height: double.infinity,
         child: Column(
           children: [
-            Image.asset("assets/images/logo.png")
+            Image.asset("assets/images/logo.png"),
+            Card(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [Text("Body")],
+              ),
+            )
           ],
         ),
       ),
