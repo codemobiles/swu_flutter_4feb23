@@ -30,7 +30,10 @@ class _LoginPageState extends State<LoginPage> {
                     padding: const EdgeInsets.all(16.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [Text("Body")],
+                      children: [
+                        Text("Body"),
+                        OutlinedButton(onPressed: () {}, child: Text("Login")),
+                      ],
                     ),
                   ),
                 ),
