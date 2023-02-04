@@ -23,6 +23,7 @@ class _LoginPageState extends State<LoginPage> {
             Text("Box1", style: TextStyle(fontSize: 40)),
             Text("Box2", style: TextStyle(fontSize: 40)),
             Text("Box3", style: TextStyle(fontSize: 40)),
+            TextButton(onPressed: (){}, child: Text("Btn1"))
           ],
         ),
       ),
