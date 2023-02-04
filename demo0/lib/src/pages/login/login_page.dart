@@ -22,9 +22,12 @@ class _LoginPageState extends State<LoginPage> {
           children: [
             Image.asset("assets/images/logo.png"),
             Card(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [Text("Body")],
+              child: SizedBox(
+                height: 200,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [Text("Body")],
+                ),
               ),
             )
           ],
