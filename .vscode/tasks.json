@@ -1,0 +1,15 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "pushall",
+      "type": "shell",
+      "command": "git add . && git commit -m '1234' && git push",
+      "presentation": {
+        "reveal": "silent",
+        "revealProblems": "onProblem",
+        "close": true
+      }
+    }
+  ]
+}
