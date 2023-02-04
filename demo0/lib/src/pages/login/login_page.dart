@@ -1,3 +1,4 @@
+import 'package:demo0/src/pages/app_routes.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -25,6 +26,7 @@ class _LoginPageState extends State<LoginPage> {
             Text("Box3", style: TextStyle(fontSize: 40)),
             TextButton(onPressed: (){
               print("I am lek");
+              Navigator.pushNamed(context, AppRoute.home);
             }, child: Text("Btn1"))
           ],
         ),
