@@ -6,3 +6,4 @@
 # Setup tools
 
 - https://developer.android.com/studio
+- https://docs.flutter.dev/get-started/install
