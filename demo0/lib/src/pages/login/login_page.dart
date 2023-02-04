@@ -18,9 +18,12 @@ class _LoginPageState extends State<LoginPage> {
         color: Colors.yellow,
         width: double.infinity,
         height: double.infinity,
-        child: Text(
-          "Box1",
-          style: TextStyle(fontSize: 40),
+        child: Column(
+          children: [
+            Text("Box1", style: TextStyle(fontSize: 40)),
+            Text("Box2", style: TextStyle(fontSize: 40)),
+            Text("Box3", style: TextStyle(fontSize: 40)),
+          ],
         ),
       ),
     );
