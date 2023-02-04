@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -19,7 +18,10 @@ class _LoginPageState extends State<LoginPage> {
         color: Colors.yellow,
         width: double.infinity,
         height: double.infinity,
-        child: Text("Box1asdfjas;fj;sajf;saj;l"),
+        child: Text(
+          "Box1",
+          style: TextStyle(fontSize: 40),
+        ),
       ),
     );
   }
