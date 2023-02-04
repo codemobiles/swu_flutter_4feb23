@@ -1,7 +1,10 @@
+
+
 import 'package:demo0/src/pages/home/home_page.dart';
-import 'package:demo0/src/pages/loading/loading_page.dart';
-import 'package:demo0/src/pages/pages.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:demo0/src/pages/login/login_page.dart';
+import 'package:demo0/src/pages/management/management_page.dart';
+import 'package:demo0/src/pages/map/map_page.dart';
+import 'package:flutter/material.dart';
 
 class AppRoute {
   static const home = 'home';
