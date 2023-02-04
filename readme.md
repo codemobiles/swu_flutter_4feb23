@@ -12,3 +12,4 @@
 - setup JAVA_HOME
   + echo $JAVA_HOME
   + echo %JAVA_HOME%
+  + export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-11.0.5.jdk/Contents/Home
