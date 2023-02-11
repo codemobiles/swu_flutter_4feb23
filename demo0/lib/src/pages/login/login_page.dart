@@ -81,7 +81,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
               child: Text("Login"),
             ),
-            OutlinedButton(onPressed: () {}, child: Text("Register")),
+            OutlinedButton(onPressed: () => context.read<LoginBloc>().add(LoginEventRegister()), child: Text("Register")),
           ],
         ),
       ),
