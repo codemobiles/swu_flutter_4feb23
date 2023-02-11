@@ -40,6 +40,7 @@ class _HomePageState extends State<HomePage> {
     final url = "https://codemobiles.com/adhoc/youtubes/index_new.php?username=admin&password=password&type=songs";
     final response  = await dio.get(url);
     print(response.data);
-    final youtubeResponse  = youtubeResponseFromJson(jsonEncode(response.data));
+    final youtubeResponse  = youtubeResponseFromJson(response.data);
+    print("First title: " + youtubeResponse.youtubes[0].title);
   }
 }
