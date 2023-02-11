@@ -1,3 +1,6 @@
+import 'dart:convert';
+
+import 'package:demo0/src/models/youtube_response.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
@@ -37,5 +40,6 @@ class _HomePageState extends State<HomePage> {
     final url = "https://codemobiles.com/adhoc/youtubes/index_new.php?username=admin&password=password&type=songs";
     final response  = await dio.get(url);
     print(response.data);
+    final youtubeResponse  = youtubeResponseFromJson(jsonEncode(response.data));
   }
 }
