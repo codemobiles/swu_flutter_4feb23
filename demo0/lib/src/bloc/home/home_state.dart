@@ -4,7 +4,7 @@ class HomeState extends Equatable {
   final List<Youtube> youtubes;
   HomeState({this.youtubes = []});
 
-  HomeState copyWith({YoutubeResponse? youtubes}) {
+  HomeState copyWith({List<Youtube>? youtubes}) {
     return HomeState(youtubes: youtubes ?? this.youtubes);
   }
 
