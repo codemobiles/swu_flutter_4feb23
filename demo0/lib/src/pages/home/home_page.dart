@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -31,5 +32,10 @@ class _HomePageState extends State<HomePage> {
         ));
   }
 
-  void loadData() {}
+  Future<void> loadData() async {
+    final dio = Dio();
+    final url = "https://codemobiles.com/adhoc/youtubes/index_new.php?username=admin&password=password&type=songs";
+    final response  = await dio.get(url);
+    print(response.data);
+  }
 }
