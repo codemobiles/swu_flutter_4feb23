@@ -72,6 +72,11 @@ class _LoginPageState extends State<LoginPage> {
                 icon: Icon(Icons.password_outlined),
               ),
             ),
+            SizedBox(height: 10),
+            Text(
+              "!Error, invalid username or password",
+              style: TextStyle(color: Colors.red),
+            ),
             SizedBox(height: 30),
             ElevatedButton(
               onPressed: _handleLogin,
