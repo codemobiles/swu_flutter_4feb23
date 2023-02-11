@@ -11,11 +11,11 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   LoginBloc() : super(LoginInitial()) {
 
     on<LoginEventSubmit>((event, emit) {
-      print("${event.username}, ${event.password}");
+      print("${event.payload.username}, ${event.payload.password}");
     });
 
     on<LoginEventRegister>((event, emit) {
-
+      print("${event.payload.username}, ${event.payload.password}");
     });
   }
 }
