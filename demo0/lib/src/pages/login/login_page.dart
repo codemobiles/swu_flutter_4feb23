@@ -73,7 +73,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             SizedBox(height: 10),
-            Text(
+            if(context.read<LoginBloc>().state.status == LoginStatus.failed) Text(
               "!Error, invalid username or password",
               style: TextStyle(color: Colors.red),
             ),
