@@ -30,11 +30,13 @@ class _LoginPageState extends State<LoginPage> {
       body: Container(
         width: double.infinity,
         height: double.infinity,
-        child: Column(
-          children: [
-            _buildBanner(),
-            _buildForm()
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              _buildBanner(),
+              _buildForm()
+            ],
+          ),
         ),
       ),
     );
