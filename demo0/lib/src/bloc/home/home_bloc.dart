@@ -15,7 +15,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       final url = "https://codemobiles.com/adhoc/youtubes/index_new.php?username=admin&password=password&type=songs";
       final response  = await dio.get(url);
       final youtubeResponse  = youtubeResponseFromJson(response.data);
-      emit(state.cop)
+      emit(state.copyWith(youtubes: youtubeResponse.youtubes));
     });
   }
 }
