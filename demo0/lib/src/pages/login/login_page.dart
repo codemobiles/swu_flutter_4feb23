@@ -74,7 +74,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
             SizedBox(height: 30),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: _handleLogin,
               child: Text("Login"),
             ),
             OutlinedButton(onPressed: () {}, child: Text("Register")),
@@ -86,4 +86,8 @@ class _LoginPageState extends State<LoginPage> {
 
   _buildBanner() => Image.asset("assets/images/logo.png");
 
+
+  void _handleLogin() {
+    print("${_usernameController.text}, ${_passwordController.text}");
+  }
 }
