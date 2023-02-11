@@ -12,4 +12,7 @@ class LoginEventSubmit extends LoginEvent {
   LoginEventSubmit(this.payload);
 }
 
-class LoginEventRegister extends LoginEvent {}
+class LoginEventRegister extends LoginEvent {
+  final User payload;
+  LoginEventRegister(this.payload);
+}
