@@ -10,7 +10,11 @@ part 'login_state.dart';
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   LoginBloc() : super(LoginState()) {
 
-    on<LoginEventSubmit>((event, emit) {
+    on<LoginEventSubmit>((event, emit) async {
+      
+
+      // delay for 1 sec.
+      await Future.delayed(Duration(seconds: 1));
       final username = event.payload.username;
       final password = event.payload.password;
       if (username == "admin" && password == "1234"){
