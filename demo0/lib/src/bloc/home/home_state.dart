@@ -1,14 +1,13 @@
 part of 'home_bloc.dart';
 
 class HomeState extends Equatable {
-  final YoutubeResponse youtubeResponse;
+  final List<Youtube> youtubes;
+  HomeState({this.youtubes = []});
 
-  const HomeState({required this.youtubeResponse});
-
-  HomeState copyWith({YoutubeResponse? youtubeResponse}) {
-    return HomeState(youtubeResponse: youtubeResponse ?? this.youtubeResponse);
+  HomeState copyWith({YoutubeResponse? youtubes}) {
+    return HomeState(youtubes: youtubes ?? this.youtubes);
   }
 
   @override
-  List<Object> get props => [youtubeResponse];
+  List<Object> get props => [youtubes];
 }
