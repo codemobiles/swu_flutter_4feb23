@@ -10,7 +10,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   LoginBloc() : super(LoginInitial()) {
 
     on<LoginEventSubmit>((event, emit) {
-      print("${_usernameController.text}, ${_passwordController.text}");
+      print("${event.username}, ${event.password}");
     });
 
     on<LoginEventRegister>((event, emit) {
