@@ -1,4 +1,5 @@
 import 'package:demo0/src/bloc/login/login_bloc.dart';
+import 'package:demo0/src/models/user.dart';
 import 'package:demo0/src/pages/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -73,12 +74,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
             SizedBox(height: 30),
             ElevatedButton(
-              onPressed: () => context.read<LoginBloc>().add(
-                    LoginEventSubmit(
-                      _usernameController.text,
-                      _passwordController.text,
-                    ),
-                  ),
+              onPressed: _handleLogin,
               child: Text("Login"),
             ),
             OutlinedButton(onPressed: () => context.read<LoginBloc>().add(LoginEventRegister()), child: Text("Register")),
@@ -89,4 +85,13 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   _buildBanner() => Image.asset("assets/images/logo.png");
+
+  void _handleLogin() {
+    final user = User(
+      _usernameController.text,
+      _passwordController.text,
+    );
+
+    context.read<LoginBloc>().add(LoginEventSubmit(user));
+  }
 }
