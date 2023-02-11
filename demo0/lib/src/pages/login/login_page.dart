@@ -9,8 +9,10 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-
   int count = 0;
+  final _usernameController = TextEditingController();
+  final _passwordController = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
@@ -35,10 +37,7 @@ class _LoginPageState extends State<LoginPage> {
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         Text("Count: $count"),
-                        ElevatedButton(onPressed: () {
-                          count++;
-                          print(count);
-                        }, child: Text("Login")),
+                        ElevatedButton(onPressed: () {}, child: Text("Login")),
                       ],
                     ),
                   ),
