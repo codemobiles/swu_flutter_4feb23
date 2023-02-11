@@ -73,9 +73,17 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             SizedBox(height: 10),
-            if(context.read<LoginBloc>().state.status == LoginStatus.failed) Text(
-              "!Error, invalid username or password",
-              style: TextStyle(color: Colors.red),
+            BlocBuilder<LoginBloc, LoginState>(
+              builder: (context, state) {
+                if (state.status == LoginStatus.failed) {
+                  return Text(
+                    "!Error, invalid username or password",
+                    style: TextStyle(color: Colors.red),
+                  );
+                }else{
+                  return SizedBox();
+                }
+              },
             ),
             SizedBox(height: 30),
             ElevatedButton(

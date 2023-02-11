@@ -15,8 +15,10 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       final password = event.payload.password;
       if (username == "admin" && password == "1234"){
         // success
+        emit(state.copyWith(status: LoginStatus.success));
       }else{
         // failed
+        emit(state.copyWith(status: LoginStatus.failed));
       }
 
     });
