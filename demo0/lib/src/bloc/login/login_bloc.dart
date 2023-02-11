@@ -14,7 +14,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
       emit(state.copyWith(status: LoginStatus.fetching));
       // delay for 1 sec.
-      await Future.delayed(Duration(seconds: 2));
+      await Future.delayed(Duration(seconds: 1));
       final username = event.payload.username;
       final password = event.payload.password;
       if (username == "admin" && password == "1234"){

@@ -10,14 +10,20 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+    final dummyArray = ["Angular", "React", "Flutter", "Vue"];
+
     return Scaffold(
         appBar: AppBar(
           title: Text('HomePage'),
         ),
         body: Container(
-          color: Colors.red,
           width: double.infinity,
           height: double.infinity,
+          child: Column(children: [
+            Text("1234"),
+            Text("1234"),
+            Text("1234")
+          ],),
         ));
   }
 }
