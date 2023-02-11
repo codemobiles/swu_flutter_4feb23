@@ -8,6 +8,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    loadData();
+  }
+  
   @override
   Widget build(BuildContext context) {
     final dummyArray = ["Angular", "React", "Flutter", "Vue"];
@@ -22,4 +30,6 @@ class _HomePageState extends State<HomePage> {
           child: Column(children: dummyArray.map((e) => Text(e)).toList(),),
         ));
   }
+
+  void loadData() {}
 }
