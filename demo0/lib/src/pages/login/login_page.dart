@@ -77,7 +77,7 @@ class _LoginPageState extends State<LoginPage> {
               onPressed: _handleLogin,
               child: Text("Login"),
             ),
-            OutlinedButton(onPressed: () => context.read<LoginBloc>().add(LoginEventRegister()), child: Text("Register")),
+            OutlinedButton(onPressed: _handleRegister, child: Text("Register")),
           ],
         ),
       ),
@@ -93,5 +93,14 @@ class _LoginPageState extends State<LoginPage> {
     );
 
     context.read<LoginBloc>().add(LoginEventSubmit(user));
+  }
+
+  void _handleRegister() {
+    final user = User(
+      _usernameController.text,
+      _passwordController.text,
+    );
+
+    context.read<LoginBloc>().add(LoginEventRegister(user));
   }
 }
