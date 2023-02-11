@@ -1,8 +1,10 @@
 import 'dart:convert';
 
+import 'package:demo0/src/bloc/home/home_bloc.dart';
 import 'package:demo0/src/models/youtube_response.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -17,7 +19,7 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    loadData();
+    context.read<HomeBloc>().add(HomeEventLoadData());
   }
   
   @override
@@ -35,12 +37,4 @@ class _HomePageState extends State<HomePage> {
         ));
   }
 
-  Future<void> loadData() async {
-    final dio = Dio();
-    final url = "https://codemobiles.com/adhoc/youtubes/index_new.php?username=admin&password=password&type=songs";
-    final response  = await dio.get(url);
-    print(response.data);
-    final youtubeResponse  = youtubeResponseFromJson(response.data);
-    print("First title: " + youtubeResponse.youtubes[0].title);
-  }
 }
