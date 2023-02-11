@@ -1,5 +1,7 @@
+import 'package:demo0/src/bloc/login/login_bloc.dart';
 import 'package:demo0/src/pages/app_routes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -32,10 +34,7 @@ class _LoginPageState extends State<LoginPage> {
         height: double.infinity,
         child: SingleChildScrollView(
           child: Column(
-            children: [
-              _buildBanner(),
-              _buildForm()
-            ],
+            children: [_buildBanner(), _buildForm()],
           ),
         ),
       ),
@@ -74,7 +73,12 @@ class _LoginPageState extends State<LoginPage> {
             ),
             SizedBox(height: 30),
             ElevatedButton(
-              onPressed: _handleLogin,
+              onPressed: () => context.read<LoginBloc>().add(
+                    LoginEventSubmit(
+                      _usernameController.text,
+                      _passwordController.text,
+                    ),
+                  ),
               child: Text("Login"),
             ),
             OutlinedButton(onPressed: () {}, child: Text("Register")),
@@ -85,9 +89,4 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   _buildBanner() => Image.asset("assets/images/logo.png");
-
-
-  void _handleLogin() {
-    print("${_usernameController.text}, ${_passwordController.text}");
-  }
 }
