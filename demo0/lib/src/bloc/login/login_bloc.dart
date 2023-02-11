@@ -8,7 +8,7 @@ part 'login_event.dart';
 part 'login_state.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
-  LoginBloc() : super(LoginInitial()) {
+  LoginBloc() : super(LoginState()) {
 
     on<LoginEventSubmit>((event, emit) {
       print("${event.payload.username}, ${event.payload.password}");
