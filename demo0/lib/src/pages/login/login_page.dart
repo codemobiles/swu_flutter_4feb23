@@ -32,7 +32,8 @@ class _LoginPageState extends State<LoginPage> {
         height: double.infinity,
         child: Column(
           children: [
-            _buildBanner()
+            _buildBanner(),
+            _buildForm()
           ],
         ),
       ),
@@ -81,7 +82,6 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  _buildBanner() {
-    return Image.asset("assets/images/logo.png");
-  }
+  _buildBanner() => Image.asset("assets/images/logo.png");
+
 }
