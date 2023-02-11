@@ -9,6 +9,9 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+
+  int count = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
