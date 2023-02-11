@@ -13,7 +13,6 @@ class _LoginPageState extends State<LoginPage> {
   final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
 
-
   @override
   void initState() {
     // TODO: implement initState
@@ -34,29 +33,48 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           children: [
             Image.asset("assets/images/logo.png"),
-            Padding(
-              padding: const EdgeInsets.all(32.0),
-              child: Card(
-                child: SizedBox(
-                  height: 200,
-                  child: Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        TextField(
-                          controller: _usernameController,
-                        ),
+          ],
+        ),
+      ),
+    );
+  }
 
-                        ElevatedButton(onPressed: () {
-                          print(_usernameController.text);
-                        }, child: Text("Login")),
-                      ],
-                    ),
-                  ),
-                ),
+  _buildForm() {
+    return Card(
+      elevation: 7,
+      margin: EdgeInsets.only(top: 50, left: 32, right: 32),
+      color: Colors.white,
+      child: Padding(
+        padding: const EdgeInsets.all(24.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            TextField(
+              controller: _usernameController,
+              keyboardType: TextInputType.emailAddress,
+              decoration: const InputDecoration(
+                border: InputBorder.none,
+                hintText: 'codemobiles@gmail.com',
+                labelText: 'Username',
+                icon: Icon(Icons.email),
               ),
-            )
+            ),
+            TextField(
+              obscureText: true,
+              controller: _passwordController,
+              decoration: const InputDecoration(
+                border: InputBorder.none,
+                hintText: 'Enter password',
+                labelText: 'Password',
+                icon: Icon(Icons.password_outlined),
+              ),
+            ),
+            SizedBox(height: 30),
+            ElevatedButton(
+              onPressed: () {},
+              child: Text("Login"),
+            ),
+            OutlinedButton(onPressed: () {}, child: Text("Register")),
           ],
         ),
       ),
