@@ -34,7 +34,7 @@ class _LoginPageState extends State<LoginPage> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        Text("Body"),
+                        Text("Count: $count"),
                         OutlinedButton(onPressed: () {}, child: Text("Login")),
                       ],
                     ),
