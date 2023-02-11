@@ -43,61 +43,68 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   _buildForm() {
-    return Card(
-      elevation: 7,
-      margin: EdgeInsets.only(top: 50, left: 32, right: 32),
-      color: Colors.white,
-      child: Padding(
-        padding: const EdgeInsets.all(24.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            TextField(
-              controller: _usernameController,
-              keyboardType: TextInputType.emailAddress,
-              decoration: const InputDecoration(
-                border: InputBorder.none,
-                hintText: 'codemobiles@gmail.com',
-                labelText: 'Username',
-                icon: Icon(Icons.email),
+    return BlocListener<LoginBloc, LoginState>(
+      listener: (context, state) {
+        if (state.status == LoginStatus.success){
+          Navigator.pushNamed(context, AppRoute.home);
+        }
+      },
+      child: Card(
+        elevation: 7,
+        margin: EdgeInsets.only(top: 50, left: 32, right: 32),
+        color: Colors.white,
+        child: Padding(
+          padding: const EdgeInsets.all(24.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              TextField(
+                controller: _usernameController,
+                keyboardType: TextInputType.emailAddress,
+                decoration: const InputDecoration(
+                  border: InputBorder.none,
+                  hintText: 'codemobiles@gmail.com',
+                  labelText: 'Username',
+                  icon: Icon(Icons.email),
+                ),
               ),
-            ),
-            TextField(
-              obscureText: true,
-              controller: _passwordController,
-              decoration: const InputDecoration(
-                border: InputBorder.none,
-                hintText: 'Enter password',
-                labelText: 'Password',
-                icon: Icon(Icons.password_outlined),
+              TextField(
+                obscureText: true,
+                controller: _passwordController,
+                decoration: const InputDecoration(
+                  border: InputBorder.none,
+                  hintText: 'Enter password',
+                  labelText: 'Password',
+                  icon: Icon(Icons.password_outlined),
+                ),
               ),
-            ),
-            SizedBox(height: 10),
-            BlocBuilder<LoginBloc, LoginState>(
-              builder: (context, state) {
-                if (state.status == LoginStatus.failed) {
-                  return Text(
-                    "!Error, invalid username or password",
-                    style: TextStyle(color: Colors.red),
+              SizedBox(height: 10),
+              BlocBuilder<LoginBloc, LoginState>(
+                builder: (context, state) {
+                  if (state.status == LoginStatus.failed) {
+                    return Text(
+                      "!Error, invalid username or password",
+                      style: TextStyle(color: Colors.red),
+                    );
+                  } else {
+                    return SizedBox();
+                  }
+                },
+              ),
+              SizedBox(height: 30),
+              BlocBuilder<LoginBloc, LoginState>(
+                builder: (context, state) {
+                  return ElevatedButton(
+                    onPressed: state.status == LoginStatus.fetching ? null : _handleLogin,
+                    child: Text(
+                      state.status == LoginStatus.fetching ? "Loading.." : "Login",
+                    ),
                   );
-                } else {
-                  return SizedBox();
-                }
-              },
-            ),
-            SizedBox(height: 30),
-            BlocBuilder<LoginBloc, LoginState>(
-              builder: (context, state) {
-                return ElevatedButton(
-                  onPressed: state.status == LoginStatus.fetching ? null :  _handleLogin,
-                  child: Text(
-                    state.status == LoginStatus.fetching ? "Loading.." : "Login",
-                  ),
-                );
-              },
-            ),
-            OutlinedButton(onPressed: _handleRegister, child: Text("Register")),
-          ],
+                },
+              ),
+              OutlinedButton(onPressed: _handleRegister, child: Text("Register")),
+            ],
+          ),
         ),
       ),
     );
