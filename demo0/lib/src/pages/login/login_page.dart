@@ -48,7 +48,9 @@ class _LoginPageState extends State<LoginPage> {
                           controller: _usernameController,
                         ),
 
-                        ElevatedButton(onPressed: () {}, child: Text("Login")),
+                        ElevatedButton(onPressed: () {
+                          print(_usernameController.text);
+                        }, child: Text("Login")),
                       ],
                     ),
                   ),
