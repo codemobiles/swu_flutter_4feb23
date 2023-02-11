@@ -11,7 +11,14 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   LoginBloc() : super(LoginState()) {
 
     on<LoginEventSubmit>((event, emit) {
-      print("${event.payload.username}, ${event.payload.password}");
+      final username = event.payload.username;
+      final password = event.payload.password;
+      if (username == "admin" && password == "1234"){
+        // success
+      }else{
+        // failed
+      }
+
     });
 
     on<LoginEventRegister>((event, emit) {
