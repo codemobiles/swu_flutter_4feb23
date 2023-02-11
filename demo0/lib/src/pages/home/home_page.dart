@@ -19,11 +19,7 @@ class _HomePageState extends State<HomePage> {
         body: Container(
           width: double.infinity,
           height: double.infinity,
-          child: Column(children: [
-            Text("1234"),
-            Text("1234"),
-            Text("1234")
-          ],),
+          child: Column(children: dummyArray.map((e) => Text(e)).toList(),),
         ));
   }
 }
