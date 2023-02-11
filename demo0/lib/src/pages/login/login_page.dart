@@ -80,15 +80,21 @@ class _LoginPageState extends State<LoginPage> {
                     "!Error, invalid username or password",
                     style: TextStyle(color: Colors.red),
                   );
-                }else{
+                } else {
                   return SizedBox();
                 }
               },
             ),
             SizedBox(height: 30),
-            ElevatedButton(
-              onPressed: _handleLogin,
-              child: Text("Login"),
+            BlocBuilder<LoginBloc, LoginState>(
+              builder: (context, state) {
+                return ElevatedButton(
+                  onPressed: state.status == LoginStatus.fetching ? null :  _handleLogin,
+                  child: Text(
+                    state.status == LoginStatus.fetching ? "Loading.." : "Login",
+                  ),
+                );
+              },
             ),
             OutlinedButton(onPressed: _handleRegister, child: Text("Register")),
           ],

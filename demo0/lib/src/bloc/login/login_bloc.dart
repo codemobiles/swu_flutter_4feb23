@@ -11,10 +11,10 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   LoginBloc() : super(LoginState()) {
 
     on<LoginEventSubmit>((event, emit) async {
-      
 
+      emit(state.copyWith(status: LoginStatus.fetching));
       // delay for 1 sec.
-      await Future.delayed(Duration(seconds: 1));
+      await Future.delayed(Duration(seconds: 2));
       final username = event.payload.username;
       final password = event.payload.password;
       if (username == "admin" && password == "1234"){
