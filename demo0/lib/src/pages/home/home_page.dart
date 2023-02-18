@@ -1,7 +1,10 @@
 import 'dart:convert';
 
 import 'package:demo0/src/bloc/home/home_bloc.dart';
+import 'package:demo0/src/bloc/login/login_bloc.dart';
+import 'package:demo0/src/constants/asset.dart';
 import 'package:demo0/src/models/youtube_response.dart';
+import 'package:demo0/src/pages/app_routes.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -154,4 +157,96 @@ class _HomePageState extends State<HomePage> {
       },
     );
   }
+}
+
+class CustomDrawer extends StatelessWidget {
+  const CustomDrawer({
+    Key? key,
+  }) : super(key: key);
+
+  // void _showDialogBarcode(context) {
+  //   showDialog<void>(
+  //     context: context,
+  //     barrierDismissible: true,
+  //     builder: (BuildContext dialogContext) => const DialogBarcodeImage(
+  //       'www.codemobiles.com',
+  //     ),
+  //   );
+  // }
+
+  // void _showDialogQRImage(context) {
+  //   showDialog<void>(
+  //     context: context,
+  //     barrierDismissible: true,
+  //     builder: (BuildContext dialogContext) => const DialogQRImage(
+  //       'www.codemobiles.com',
+  //       image: Asset.pinBikerImage,
+  //     ),
+  //   );
+  // }
+
+  // void _showScanQRCode(context) {
+  //   showDialog<void>(
+  //     context: context,
+  //     barrierDismissible: true,
+  //     builder: (BuildContext dialogContext) => DialogScanQRCode(),
+  //   );
+  // }
+
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      child: Column(
+        children: [
+          _buildProfile(),
+          ListTile(
+            onTap: () => print(""), //_showDialogBarcode(context),
+            title: Text("BarCode"),
+            leading: Icon(Icons.bar_chart_outlined, color: Colors.deepOrange),
+          ),
+          ListTile(
+            onTap: () => print(""), //_showDialogQRImage(context),
+            title: Text("QRCode"),
+            leading: Icon(Icons.qr_code, color: Colors.green),
+          ),
+          ListTile(
+            onTap: () => print(""), //_showScanQRCode(context),
+            title: Text("Scanner"),
+            leading: const Icon(Icons.qr_code_scanner, color: Colors.blueGrey),
+          ),
+          ListTile(
+            onTap: () => Navigator.pushNamed(context, AppRoute.map),
+            title: Text("Map"),
+            leading: Icon(Icons.map_outlined, color: Colors.blue),
+          ),
+          Spacer(),
+          _buildLogoutButton(),
+        ],
+      ),
+    );
+  }
+
+  UserAccountsDrawerHeader _buildProfile() => UserAccountsDrawerHeader(
+        currentAccountPicture: Container(
+          decoration: BoxDecoration(
+            color: Colors.white,
+            shape: BoxShape.circle,
+          ),
+          child: const CircleAvatar(
+            backgroundImage: AssetImage(Asset.cmLogoImage),
+          ),
+        ),
+        accountName: Text('CMDev'),
+        accountEmail: Text('support@codemobiles.com'),
+      );
+
+  Builder _buildLogoutButton() => Builder(
+        builder: (context) => SafeArea(
+          child: ListTile(
+            leading: Icon(Icons.exit_to_app),
+            title: Text('Log out'),
+            onTap: () => print("") //context.read<LoginBloc>().add(LoginEvent_Logout()),
+          ),
+        ),
+      );
 }
