@@ -1,16 +1,43 @@
-# demo0
+# review flutter course
 
-A new Flutter project.
+## Day 1
+- setup flutter dev tools
+- Learn about UIs
+  + main -> runApp -> MaterialApp -> Widgets(Login)
+  + Row, Column, Container, SizedBox, Card 
+  + Colors, Text, Icon, SingleChildScrollView
+  + TextButton, OutlinedButton, ElevatedButton
+  + Image.asset, Image.network
+  + TextField, TextEditController
+  + Etc... 
+- Types of Flutter Widgets
+  + StatelessWidget (stl) vs StatefullWidget (stf)
+  + Widget lifecycle [initState, build, dispose]
+  + Scaffold [appbar, body, floatingActionButton, title]
+  + pubspec.yml [www.pub.dev, assets]
 
-## Getting Started
+## Day2
+- Page Navigation
+  + setup in MaterialApp 
+  + [routes: AppRoute.all, Navigator.pushNamed(..), Navigator.pop(..)]
+  + Event onPressed (){method();} vs ()=>method() vs _method 
+- int tmp1 = 0, String tmp2 = ""
+- int? tmp1 = null, String? tmp2 = null
+- setState((){ tmp1 = 1 }) -> force to refresh UI
+- Bloc => Bussiness Login Component
+  + plugin (bloc)
+  + single bloc [XXXstate, XXXevent, XXXBloc]
+  + Register bloc in app.dart [BlocProvider, MultiBlocProvider, provider]
+  + context.read<HomeBloc>().add(HomeEventLoadData());
+  + context.read<HomeBloc>().state
+  + BlocBuilder 
+  + setState(refresh whole screen) vs BlocBuilder (refresh only wrapped widget)
++ Dio Http client 
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+`
+final dio = Dio();
+final url = "https://codemobiles.com/adhoc/youtubes/index_new.php?username=admin&password=password&type=songs";
+final response  = await dio.get(url);
+final youtubeResponse  = youtubeResponseFromJson(response.data);
+emit(state.copyWith(youtubes: youtubeResponse.youtubes));
+`
