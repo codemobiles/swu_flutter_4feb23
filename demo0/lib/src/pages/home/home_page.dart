@@ -5,6 +5,8 @@ import 'package:demo0/src/bloc/login/login_bloc.dart';
 import 'package:demo0/src/constants/asset.dart';
 import 'package:demo0/src/models/youtube_response.dart';
 import 'package:demo0/src/pages/app_routes.dart';
+import 'package:demo0/src/pages/home/widgets/dialog_barcode_image.dart';
+import 'package:demo0/src/pages/home/widgets/dialog_qr_image.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -197,26 +199,26 @@ class CustomDrawer extends StatelessWidget {
         });
   }
 
-  // void _showDialogBarcode(context) {
-  //   showDialog<void>(
-  //     context: context,
-  //     barrierDismissible: true,
-  //     builder: (BuildContext dialogContext) => const DialogBarcodeImage(
-  //       'www.codemobiles.com',
-  //     ),
-  //   );
-  // }
+  void _showDialogBarcode(context) {
+    showDialog<void>(
+      context: context,
+      barrierDismissible: true,
+      builder: (BuildContext dialogContext) => const DialogBarcodeImage(
+        'www.codemobiles.com',
+      ),
+    );
+  }
 
-  // void _showDialogQRImage(context) {
-  //   showDialog<void>(
-  //     context: context,
-  //     barrierDismissible: true,
-  //     builder: (BuildContext dialogContext) => const DialogQRImage(
-  //       'www.codemobiles.com',
-  //       image: Asset.pinBikerImage,
-  //     ),
-  //   );
-  // }
+  void _showDialogQRImage(context) {
+    showDialog<void>(
+      context: context,
+      barrierDismissible: true,
+      builder: (BuildContext dialogContext) => const DialogQRImage(
+        'www.codemobiles.com',
+        image: Asset.pinBikerImage,
+      ),
+    );
+  }
 
   // void _showScanQRCode(context) {
   //   showDialog<void>(
@@ -233,12 +235,12 @@ class CustomDrawer extends StatelessWidget {
         children: [
           _buildProfile(),
           ListTile(
-            onTap: () => _showMyDialogBox(context), //_showDialogBarcode(context),
+            onTap: () => _showDialogBarcode(context), //_showDialogBarcode(context),
             title: Text("BarCode"),
             leading: Icon(Icons.bar_chart_outlined, color: Colors.deepOrange),
           ),
           ListTile(
-            onTap: () => print(""), //_showDialogQRImage(context),
+            onTap: () => _showDialogQRImage(context),
             title: Text("QRCode"),
             leading: Icon(Icons.qr_code, color: Colors.green),
           ),
