@@ -62,17 +62,15 @@ class _HomePageState extends State<HomePage> {
       itemBuilder: (BuildContext context, int index) {
         return Container(
             color: Colors.black,
-            child: Text(
-              youtubes[index].title,
-              style: TextStyle(color: Colors.white),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                youtubes[index].title,
+                style: TextStyle(color: Colors.white),
+              ),
             ));
       },
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        mainAxisSpacing: 1,
-        crossAxisSpacing: 1,
-        childAspectRatio: 0.8
-      ),
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, mainAxisSpacing: 1, crossAxisSpacing: 1, childAspectRatio: 0.8),
     );
   }
 
