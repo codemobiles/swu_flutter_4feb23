@@ -35,11 +35,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        drawer: Drawer(
-          child: SafeArea(
-            child: Text("Menu"),
-          ),
-        ),
+        drawer: CustomDrawer(),
         appBar: AppBar(
           title: Text('HomePage'),
           actions: [
