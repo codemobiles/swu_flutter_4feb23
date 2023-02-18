@@ -14,7 +14,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   @override
   void dispose() {
     // TODO: implement dispose
@@ -30,8 +29,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final dummyArray = ["Angular", "React", "Flutter", "Vue"];
-
     return Scaffold(
         appBar: AppBar(
           title: Text('HomePage'),
@@ -41,10 +38,12 @@ class _HomePageState extends State<HomePage> {
           height: double.infinity,
           child: BlocBuilder<HomeBloc, HomeState>(
             builder: (context, state) {
-              return Column(children: state.youtubes.map((e) => Text(e.title)).toList(),);
+              // return Column(children: state.youtubes.map((e) => Text(e.title)).toList(),);
+              return ListView.builder(
+                itemBuilder: (BuildContext context, int index) {},
+              );
             },
           ),
         ));
   }
-
 }
