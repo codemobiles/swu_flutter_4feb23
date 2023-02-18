@@ -40,11 +40,7 @@ class App extends StatelessWidget {
       future: SharedPreferences.getInstance(),
       builder: (context, snapshot) {
         if (!snapshot.hasData) {
-          return Container(
-            color: Colors.white,
-            alignment: Alignment.center,
-            child: Text("Loading..."),
-          );
+          return LoadingPage();
         }
         final token = snapshot.data!.getString(NetworkAPI.token);
         return token == null ? LoginPage() : HomePage();
