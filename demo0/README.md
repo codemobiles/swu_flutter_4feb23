@@ -34,10 +34,10 @@
   + setState(refresh whole screen) vs BlocBuilder (refresh only wrapped widget)
 + Dio Http client 
 
-`
+``` 
 final dio = Dio();
 final url = "https://codemobiles.com/adhoc/youtubes/index_new.php?username=admin&password=password&type=songs";
 final response  = await dio.get(url);
 final youtubeResponse  = youtubeResponseFromJson(response.data);
 emit(state.copyWith(youtubes: youtubeResponse.youtubes));
-`
+```
