@@ -60,7 +60,12 @@ class _HomePageState extends State<HomePage> {
     return GridView.builder(
       itemCount: youtubes.length,
       itemBuilder: (BuildContext context, int index) {
-        return Text(youtubes[index].title);
+        return Container(
+            color: Colors.black,
+            child: Text(
+              youtubes[index].title,
+              style: TextStyle(color: Colors.white),
+            ));
       },
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
