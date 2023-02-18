@@ -1,8 +1,10 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:demo0/src/constants/network_api.dart';
 import 'package:demo0/src/models/user.dart';
 import 'package:equatable/equatable.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 part 'login_event.dart';
 part 'login_state.dart';
@@ -20,6 +22,8 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       if (username == "admin" && password == "1234"){
         // success
         emit(state.copyWith(status: LoginStatus.success));
+        final prefs = await SharedPreferences.getInstance();
+        await prefs.setString(NetworkAPI.token, "1234214124");
       }else{
         // failed
         emit(state.copyWith(status: LoginStatus.failed));
