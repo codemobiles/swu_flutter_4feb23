@@ -103,7 +103,50 @@ class _HomePageState extends State<HomePage> {
     return ListView.builder(
       itemCount: youtubes.length,
       itemBuilder: (BuildContext context, int index) {
-        return Text(youtubes[index].title);
+        return Container(
+          height: 300,
+          width: double.infinity,
+          child: Column(
+            children: [
+              Row(
+                children: [
+
+                  // avatar image
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: SizedBox(
+                      width: 50,
+                      height: 50,
+                      child: Image.network(
+                        youtubes[index].avatarImage,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                  // title and subtitle
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(youtubes[index].title),
+                        Text(
+                          youtubes[index].subtitle,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              Expanded(
+                child: Image.network(
+                  youtubes[index].youtubeImage,
+                  fit: BoxFit.cover,
+                ),
+              )
+            ],
+          ),
+        );
       },
     );
   }
