@@ -175,6 +175,13 @@ class CustomDrawer extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
+
+  _showMyDialogBox(context){
+    showDialog(context: context, builder: (BuildContext context) {
+      return Text("Lek");
+    });
+  }
+
   // void _showDialogBarcode(context) {
   //   showDialog<void>(
   //     context: context,
