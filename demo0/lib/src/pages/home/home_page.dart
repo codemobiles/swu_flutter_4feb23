@@ -50,7 +50,7 @@ class _HomePageState extends State<HomePage> {
           height: double.infinity,
           child: BlocBuilder<HomeBloc, HomeState>(
             builder: (context, state) {
-              return false ? _buildListView(state.youtubes) : Text("Oh No");
+              return _isShowListView ? _buildListView(state.youtubes) : Text("Oh No");
             },
           ),
         ));
