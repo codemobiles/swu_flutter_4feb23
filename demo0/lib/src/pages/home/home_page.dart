@@ -67,7 +67,12 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 children: [
                   Text(youtubes[index].title, style: TextStyle(color: Colors.white)),
-                  Image.network(youtubes[index].youtubeImage)
+                  Expanded(
+                    child: Image.network(
+                      youtubes[index].youtubeImage,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
                 ],
               ),
             ));
