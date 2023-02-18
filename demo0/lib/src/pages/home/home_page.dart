@@ -64,35 +64,38 @@ class _HomePageState extends State<HomePage> {
     return GridView.builder(
       itemCount: youtubes.length,
       itemBuilder: (BuildContext context, int index) {
-        return Container(
-            color: Colors.black,
-            child: Stack(
-              children: [
-                SizedBox(
-                  height: double.infinity,
-                  width: double.infinity,
-                  child: Image.network(
-                    youtubes[index].youtubeImage,
-                    fit: BoxFit.cover,
+        return TextButton(
+          onPressed: ()=> print(youtubes[index].title),
+          child: Container(
+              color: Colors.black,
+              child: Stack(
+                children: [
+                  SizedBox(
+                    height: double.infinity,
+                    width: double.infinity,
+                    child: Image.network(
+                      youtubes[index].youtubeImage,
+                      fit: BoxFit.cover,
+                    ),
                   ),
-                ),
-                Positioned(
-                    bottom: 0,
-                    left: 0,
-                    right: 0,
-                    child: Container(
-                      width: double.infinity,
-                      color: Colors.black45,
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          youtubes[index].title,
-                          style: TextStyle(color: Colors.white),
+                  Positioned(
+                      bottom: 0,
+                      left: 0,
+                      right: 0,
+                      child: Container(
+                        width: double.infinity,
+                        color: Colors.black45,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            youtubes[index].title,
+                            style: TextStyle(color: Colors.white),
+                          ),
                         ),
-                      ),
-                    )),
-              ],
-            ));
+                      )),
+                ],
+              )),
+        );
       },
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
