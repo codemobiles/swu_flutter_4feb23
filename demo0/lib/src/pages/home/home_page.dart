@@ -72,7 +72,21 @@ class _HomePageState extends State<HomePage> {
                     fit: BoxFit.cover,
                   ),
                 ),
-                Text(youtubes[index].title, style: TextStyle(color: Colors.white)),
+                Positioned(
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    child: Container(
+                      width: double.infinity,
+                      color: Colors.black45,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          youtubes[index].title,
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                    )),
               ],
             ));
       },
