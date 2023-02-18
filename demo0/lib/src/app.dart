@@ -27,6 +27,7 @@ class App extends StatelessWidget {
       child: MaterialApp(
         routes: AppRoute.all,
         home: _loadDefaultPage(),
+        navigatorKey: navigatorState,
       ),
     );
   }
