@@ -178,7 +178,7 @@ class CustomDrawer extends StatelessWidget {
 
   _showMyDialogBox(context){
     showDialog(context: context, builder: (BuildContext context) {
-      return Text("Lek");
+      return Dialog(child: Text("Lek"));
     });
   }
 
@@ -218,7 +218,7 @@ class CustomDrawer extends StatelessWidget {
         children: [
           _buildProfile(),
           ListTile(
-            onTap: () => print(""), //_showDialogBarcode(context),
+            onTap: () => _showMyDialogBox(context), //_showDialogBarcode(context),
             title: Text("BarCode"),
             leading: Icon(Icons.bar_chart_outlined, color: Colors.deepOrange),
           ),
