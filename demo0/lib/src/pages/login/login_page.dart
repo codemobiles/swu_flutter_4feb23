@@ -46,7 +46,8 @@ class _LoginPageState extends State<LoginPage> {
     return BlocListener<LoginBloc, LoginState>(
       listener: (context, state) {
         if (state.status == LoginStatus.success){
-          Navigator.pushNamed(context, AppRoute.home);
+          // Navigator.pushNamed(context, AppRoute.home);
+          Navigator.pushReplacementNamed(context, AppRoute.home);
         }
       },
       child: Card(
