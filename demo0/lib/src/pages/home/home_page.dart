@@ -38,15 +38,18 @@ class _HomePageState extends State<HomePage> {
           height: double.infinity,
           child: BlocBuilder<HomeBloc, HomeState>(
             builder: (context, state) {
-              // return Column(children: state.youtubes.map((e) => Text(e.title)).toList(),);
-              return ListView.builder(
-                itemCount: state.youtubes.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return Text(state.youtubes[index].title);
-                },
-              );
+              return _buildListView(state.youtubes);
             },
           ),
         ));
+  }
+
+  Widget _buildListView(List<Youtube> youtubes) {
+    return ListView.builder(
+      itemCount: youtubes.length,
+      itemBuilder: (BuildContext context, int index) {
+        return Text(youtubes[index].title);
+      },
+    );
   }
 }
