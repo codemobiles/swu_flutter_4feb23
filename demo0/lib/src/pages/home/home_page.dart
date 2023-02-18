@@ -8,6 +8,7 @@ import 'package:demo0/src/pages/app_routes.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -58,6 +59,14 @@ class _HomePageState extends State<HomePage> {
             },
           ),
         ));
+  }
+
+  Future<void> _launchUrl(String urlString) async {
+    final Uri _url = Uri.parse('https://flutter.dev');
+
+    if (!await launchUrl(_url)) {
+      throw Exception('Could not launch $_url');
+    }
   }
 
   Widget _buildGridView(List<Youtube> youtubes) {
