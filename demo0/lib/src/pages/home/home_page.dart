@@ -40,9 +40,9 @@ class _HomePageState extends State<HomePage> {
             builder: (context, state) {
               // return Column(children: state.youtubes.map((e) => Text(e.title)).toList(),);
               return ListView.builder(
-                itemCount: 100,
+                itemCount: state.youtubes.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return Text("SWU #$index");
+                  return Text(state.youtubes[index].title);
                 },
               );
             },
