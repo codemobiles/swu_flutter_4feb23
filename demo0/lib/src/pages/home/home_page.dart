@@ -14,6 +14,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  var _isShowListView = true;
+
   @override
   void dispose() {
     // TODO: implement dispose
@@ -34,8 +36,12 @@ class _HomePageState extends State<HomePage> {
           title: Text('HomePage'),
           actions: [
             IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.list),
+              onPressed: () {
+                setState(() {
+                  _isShowListView = !_isShowListView;
+                });
+              },
+              icon: Icon(_isShowListView ? Icons.list : Icons.grid_3x3),
             )
           ],
         ),
