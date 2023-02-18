@@ -32,6 +32,11 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        drawer: Drawer(
+          child: SafeArea(
+            child: Text("Menu"),
+          ),
+        ),
         appBar: AppBar(
           title: Text('HomePage'),
           actions: [
@@ -110,7 +115,6 @@ class _HomePageState extends State<HomePage> {
             children: [
               Row(
                 children: [
-
                   // avatar image
                   Padding(
                     padding: const EdgeInsets.all(8.0),
