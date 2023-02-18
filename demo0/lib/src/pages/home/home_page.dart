@@ -50,10 +50,22 @@ class _HomePageState extends State<HomePage> {
           height: double.infinity,
           child: BlocBuilder<HomeBloc, HomeState>(
             builder: (context, state) {
-              return _isShowListView ? _buildListView(state.youtubes) : Text("Oh No");
+              return _isShowListView ? _buildListView(state.youtubes) : _buildGridView(state.youtubes);
             },
           ),
         ));
+  }
+
+  Widget _buildGridView(List<Youtube> youtubes) {
+    return GridView.builder(
+      itemCount: youtubes.length,
+      itemBuilder: (BuildContext context, int index) {
+        return Text(youtubes[index].title);
+      },
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+      ),
+    );
   }
 
   Widget _buildListView(List<Youtube> youtubes) {
