@@ -241,7 +241,7 @@ class CustomDrawer extends StatelessWidget {
           child: ListTile(
             leading: Icon(Icons.exit_to_app),
             title: Text('Log out'),
-            onTap: () => print("") //context.read<LoginBloc>().add(LoginEvent_Logout()),
+            onTap: () => context.read<LoginBloc>().add(LoginEvent_Logout()),
           ),
         ),
       );

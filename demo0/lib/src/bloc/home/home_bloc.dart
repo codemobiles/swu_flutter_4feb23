@@ -17,5 +17,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       final youtubeResponse  = youtubeResponseFromJson(response.data);
       emit(state.copyWith(youtubes: youtubeResponse.youtubes));
     });
+
+
   }
 }

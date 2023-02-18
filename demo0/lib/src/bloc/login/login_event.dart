@@ -16,3 +16,6 @@ class LoginEventRegister extends LoginEvent {
   final User payload;
   LoginEventRegister(this.payload);
 }
+
+class LoginEvent_Logout extends LoginEvent {
+}
