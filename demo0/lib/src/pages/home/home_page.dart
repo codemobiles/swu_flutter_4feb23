@@ -74,7 +74,7 @@ class _HomePageState extends State<HomePage> {
       itemCount: youtubes.length,
       itemBuilder: (BuildContext context, int index) {
         return TextButton(
-          onPressed: ()=> _launchUrl("https://www.youtube.com/watch?v=${youtubes[index].id}"),
+          onPressed: () => _launchUrl("https://www.youtube.com/watch?v=${youtubes[index].id}"),
           child: Container(
               color: Colors.black,
               child: Stack(
@@ -120,7 +120,7 @@ class _HomePageState extends State<HomePage> {
       itemCount: youtubes.length,
       itemBuilder: (BuildContext context, int index) {
         return TextButton(
-          onPressed: ()=> _launchUrl("https://www.youtube.com/watch?v=${youtubes[index].id}"),
+          onPressed: () => _launchUrl("https://www.youtube.com/watch?v=${youtubes[index].id}"),
           child: Container(
             height: 300,
             width: double.infinity,
@@ -175,11 +175,26 @@ class CustomDrawer extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-
-  _showMyDialogBox(context){
-    showDialog(context: context, builder: (BuildContext context) {
-      return Dialog(child: Text("Lek"));
-    });
+  _showMyDialogBox(context) {
+    showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          return Dialog(
+            child: SizedBox(
+              height: 100,
+              child: Column(
+                children: [
+                  Text("Lek"),
+                  ElevatedButton(
+                    child: Text("Close"),
+                    onPressed: () => Navigator.pop(context),
+                  )
+                ],
+              ),
+            ),
+          );
+        });
   }
 
   // void _showDialogBarcode(context) {
