@@ -6,7 +6,13 @@ import 'package:demo0/src/pages/home/home_page.dart';
 import 'package:demo0/src/pages/login/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+final formatCurrency = NumberFormat('#,###.000');
+final formatNumber = NumberFormat('#,###');
+final navigatorState = GlobalKey<NavigatorState>();
+
 
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
