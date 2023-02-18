@@ -64,15 +64,17 @@ class _HomePageState extends State<HomePage> {
             color: Colors.black,
             child: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Column(
+              child: Stack(
                 children: [
-                  Text(youtubes[index].title, style: TextStyle(color: Colors.white)),
-                  Expanded(
+                  SizedBox(
+                    height: double.infinity,
+                    width: double.infinity,
                     child: Image.network(
                       youtubes[index].youtubeImage,
                       fit: BoxFit.cover,
                     ),
                   ),
+                  Text(youtubes[index].title, style: TextStyle(color: Colors.white)),
                 ],
               ),
             ));
