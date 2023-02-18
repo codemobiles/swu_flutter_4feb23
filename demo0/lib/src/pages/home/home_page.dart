@@ -69,6 +69,9 @@ class _HomePageState extends State<HomePage> {
       },
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
+        mainAxisSpacing: 1,
+        crossAxisSpacing: 1,
+        childAspectRatio: 0.8
       ),
     );
   }
