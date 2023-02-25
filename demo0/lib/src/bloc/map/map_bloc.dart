@@ -7,8 +7,8 @@ part 'map_state.dart';
 
 class MapBloc extends Bloc<MapEvent, MapState> {
   MapBloc() : super(MapState(LatLng(13.7462463, 100.5325515))) {
-    on<MapEvent>((event, emit) {
-      // TODO: implement event handler
+    on<MapEvent_SubmitLocation>((event, emit) {
+      print(event.position.toJson());
     });
   }
 }
