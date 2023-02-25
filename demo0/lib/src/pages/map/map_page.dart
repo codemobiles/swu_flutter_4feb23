@@ -52,6 +52,7 @@ class _MapPageState extends State<MapPage> {
     final BitmapDescriptor bitmap = BitmapDescriptor.fromBytes(markerIcon);
 
     final marker = Marker(
+      icon: bitmap,
       markerId: MarkerId("1234"),
       position: _initMap.target,
     );
