@@ -134,6 +134,7 @@ class _MapPageState extends State<MapPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [IconButton(onPressed: _zoomPolygon, icon: Icon(Icons.zoom_in_map))],
         title: Text('Mappage'),
       ),
       floatingActionButton: FloatingActionButton(
@@ -157,4 +158,6 @@ class _MapPageState extends State<MapPage> {
       ),
     );
   }
+
+  void _zoomPolygon() {}
 }
