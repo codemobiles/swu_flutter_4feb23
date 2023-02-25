@@ -17,6 +17,11 @@ class _MapPageState extends State<MapPage> {
     zoom: 15,
   );
 
+  static const CameraPosition _newLocation = CameraPosition(
+    target: LatLng(13.7462463, 100.5325515),
+    zoom: 15,
+  );
+
   final Completer<GoogleMapController> _controller = Completer();
   StreamSubscription<LocationData>? _locationSubscription;
   final _locationService = Location();
@@ -29,6 +34,7 @@ class _MapPageState extends State<MapPage> {
     LatLng(13.716931129483003, 100.57489234954119),
     LatLng(13.724794053328308, 100.56783076375723),
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +42,11 @@ class _MapPageState extends State<MapPage> {
         title: Text('Mappage'),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => print("1234"),
+        onPressed: () => _controller.future.then(
+          (mapController) => mapController.animateCamera(
+            CameraUpdate.newLatLngZoom(_initMap.target, 15),
+          ),
+        ),
         child: Icon(Icons.pin_drop),
       ),
       body: GoogleMap(
