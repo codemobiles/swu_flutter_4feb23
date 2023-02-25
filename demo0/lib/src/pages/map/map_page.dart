@@ -47,6 +47,7 @@ class _MapPageState extends State<MapPage> {
     // TODO: implement initState
     super.initState();
     _buildSingleMarker(position: LatLng(13.7462463, 100.5325515));
+    _buildPolygon();
   }
 
   String formatPosition(LatLng pos) {
@@ -101,6 +102,21 @@ class _MapPageState extends State<MapPage> {
     setState(() {});
   }
 
+  _buildPolygon() {
+    final polygon = Polygon(
+      polygonId: PolygonId("1"),
+      consumeTapEvents: true,
+      points: _dummyLatLng,
+      strokeWidth: 2,
+      onTap: () {},
+      strokeColor: Colors.yellow,
+      fillColor: Colors.yellow.withOpacity(0.15),
+    );
+
+    _polygons.add(polygon);
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -118,6 +134,7 @@ class _MapPageState extends State<MapPage> {
       body: GoogleMap(
         onTap: (position) => _buildSingleMarker(position: position),
         markers: _markers,
+        polygons: _polygons,
         mapType: MapType.hybrid,
         trafficEnabled: true,
         initialCameraPosition: _initMap,
