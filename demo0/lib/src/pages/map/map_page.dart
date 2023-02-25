@@ -159,11 +159,10 @@ class _MapPageState extends State<MapPage> {
     );
   }
 
-  void _zoomPolygon() {
-    _controller.future.then(
-      (controller) => controller.moveCamera(
-        CameraUpdate.newLatLngBounds(_boundsFromLatLngList(_dummyLatLng), 50),
-      ),
+  Future<void> _zoomPolygon() async {
+    final controller = await _controller.future;
+    controller.moveCamera(
+      CameraUpdate.newLatLngBounds(_boundsFromLatLngList(_dummyLatLng), 50),
     );
   }
 
