@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:bloc/bloc.dart';
+import 'package:demo0/src/constants/network_api.dart';
 import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -13,6 +14,8 @@ class MapBloc extends Bloc<MapEvent, MapState> {
   MapBloc() : super(MapState(LatLng(13.7462463, 100.5325515))) {
     on<MapEvent_SubmitLocation>((event, emit) async {
       print("Gonna submit: " + event.position.toString());
+
+      Network
 
       // send
       final position = event.position;
