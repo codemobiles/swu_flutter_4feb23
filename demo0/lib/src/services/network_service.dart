@@ -1,9 +1,12 @@
 class NetworkService {
-  SomeService._internal(); // SomeService();
-  static final SomeService _instance = SomeService._internal();
-  factory SomeService() => _instance;
+  int count = 0;
+
+  NetworkService._internal(); // SomeService();
+  static final NetworkService _instance = NetworkService._internal();
+  factory NetworkService() => _instance;
 
   method1() {
-    print("Call me Why?");
+    count++;
+    print("Count: $count");
   }
 }
