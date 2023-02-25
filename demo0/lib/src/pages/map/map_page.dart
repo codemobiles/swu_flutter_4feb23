@@ -3,11 +3,13 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:demo0/src/app.dart';
+import 'package:demo0/src/bloc/map/map_bloc.dart';
 import 'package:demo0/src/constants/asset.dart';
 import 'package:demo0/src/services/common.dart';
 import 'package:demo0/src/widgets/custom_flushbar.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
 import 'package:maps_toolkit/maps_toolkit.dart' as maptoolkit;
@@ -83,6 +85,9 @@ class _MapPageState extends State<MapPage> {
   }
 
   Future<void> _buildSingleMarker({required LatLng position}) async {
+    // send location to server
+    context.read<MapBloc>().add(MapEvent_SubmitLocation(position));
+
     final Uint8List markerIcon = await getBytesFromAsset(
       Asset.pinBikerImage,
       width: 150,
