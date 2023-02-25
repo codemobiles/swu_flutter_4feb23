@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:another_flushbar/flushbar.dart';
 import 'package:demo0/src/app.dart';
 import 'package:demo0/src/constants/asset.dart';
 import 'package:demo0/src/services/common.dart';
@@ -120,6 +121,11 @@ class _MapPageState extends State<MapPage> {
         final kmArea = formatCurrency.format(meterArea / (1000000));
         print("Area: $kmArea ²Km");
         // CustomFlushbar.showSuccess(navigatorState.currentContext!, message: "Area: $kmArea ²Km");
+        Flushbar(
+          title: "Hey Ninja",
+          message: "Area: $kmArea ²Km",
+          duration: Duration(seconds: 3),
+        )..show(context);
       },
       strokeColor: Colors.yellow,
       fillColor: Colors.yellow.withOpacity(0.15),
