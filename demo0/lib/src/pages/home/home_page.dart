@@ -201,6 +201,7 @@ class CustomDrawer extends StatelessWidget {
       context: context,
       barrierDismissible: true,
       builder: (BuildContext dialogContext) => const DialogBarcodeImage(
+        color: Colors.yellow,
         'www.codemobiles.com',
       ),
     );

@@ -29,16 +29,17 @@ class DialogBarcodeImage extends StatelessWidget {
     );
   }
 
-  BarcodeWidget _buildQRImage() =>    BarcodeWidget(
-    // barcode: Barcode.qrCode(
-    //   errorCorrectLevel: BarcodeQRCorrectionLevel.high,
-    // ),
-    barcode: Barcode.code128(),
-    data: data,
-    width: 200,
-    drawText: true,
-    errorBuilder: (cxt, err) => Center(
-      child: Text("Uh oh! Something went wrong..."),
-    ),
-  );
+  BarcodeWidget _buildQRImage() => BarcodeWidget(
+        // barcode: Barcode.qrCode(
+        //   errorCorrectLevel: BarcodeQRCorrectionLevel.high,
+        // ),
+        barcode: Barcode.code128(),
+        data: data,
+        color: Color(0xff9e0202),
+        width: 200,
+        drawText: true,
+        errorBuilder: (cxt, err) => Center(
+          child: Text("Uh oh! Something went wrong..."),
+        ),
+      );
 }
