@@ -9,6 +9,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
+import 'package:maps_toolkit/maps_toolkit.dart' as maptoolkit;
 import 'package:url_launcher/url_launcher.dart';
 
 class MapPage extends StatefulWidget {
@@ -108,7 +109,18 @@ class _MapPageState extends State<MapPage> {
       consumeTapEvents: true,
       points: _dummyLatLng,
       strokeWidth: 2,
-      onTap: () {},
+      onTap: () {
+        final _mapToolkitLatLng = _dummyLatLng.map((e) {
+          return maptoolkit.LatLng(e.latitude, e.longitude);
+        }).toList();
+
+        // https://www.mapdevelopers.com/area_finder.php
+        // https://www.inchcalculator.com/convert/square-meter-to-square-kilometer/
+        final meterArea = maptoolkit.SphericalUtil.computeArea(_mapToolkitLatLng);
+        final kmArea = formatCurrency.format(meterArea / (1000000));
+        print("Area: $kmArea ²Km");
+        // CustomFlushbar.showSuccess(navigatorState.currentContext!, message: "Area: $kmArea ²Km");
+      },
       strokeColor: Colors.yellow,
       fillColor: Colors.yellow.withOpacity(0.15),
     );
