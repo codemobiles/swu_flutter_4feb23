@@ -119,6 +119,7 @@ class _MapPageState extends State<MapPage> {
         onTap: (position) => _buildSingleMarker(position: position),
         markers: _markers,
         mapType: MapType.hybrid,
+        trafficEnabled: true,
         initialCameraPosition: _initMap,
         onMapCreated: (GoogleMapController controller) {
           _controller.complete(controller);
