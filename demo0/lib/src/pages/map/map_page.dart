@@ -24,13 +24,16 @@ class _MapPageState extends State<MapPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text('Mappage'),
-        ),
-        body: Container(
-          color: Colors.purple,
-          width: double.infinity,
-          height: double.infinity,
-        ));
+      appBar: AppBar(
+        title: Text('Mappage'),
+      ),
+      body: GoogleMap(
+        mapType: MapType.hybrid,
+        initialCameraPosition: _kGooglePlex,
+        onMapCreated: (GoogleMapController controller) {
+          _controller.complete(controller);
+        },
+      ),
+    );
   }
 }
