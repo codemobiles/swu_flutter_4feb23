@@ -14,7 +14,7 @@ class MapPage extends StatefulWidget {
 class _MapPageState extends State<MapPage> {
   static const CameraPosition _initMap = CameraPosition(
     target: LatLng(13.7462463, 100.5325515),
-    zoom: 20,
+    zoom: 15,
   );
 
   final Completer<GoogleMapController> _controller = Completer();
@@ -37,7 +37,7 @@ class _MapPageState extends State<MapPage> {
       ),
       body: GoogleMap(
         mapType: MapType.hybrid,
-        initialCameraPosition: _kGooglePlex,
+        initialCameraPosition: _initMap,
         onMapCreated: (GoogleMapController controller) {
           _controller.complete(controller);
         },
