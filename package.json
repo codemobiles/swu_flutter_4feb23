@@ -1,0 +1,20 @@
+{
+  "name": "swu_flutter_4feb23",
+  "version": "1.0.0",
+  "description": "- https://drive.google.com/file/d/1jGAHCc0laNX1C6PC7NyyEhUyO_4F9u4_/view?usp=share_link - Discord: https://discord.gg/sFSygkcJ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codemobiles/swu_flutter_4feb23.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codemobiles/swu_flutter_4feb23/issues"
+  },
+  "homepage": "https://github.com/codemobiles/swu_flutter_4feb23#readme"
+}
