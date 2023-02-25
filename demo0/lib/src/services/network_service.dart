@@ -1,6 +1,7 @@
 class NetworkService {
   int count = 0;
 
+  // Singleton
   NetworkService._internal(); // SomeService();
   static final NetworkService _instance = NetworkService._internal();
   factory NetworkService() => _instance;
