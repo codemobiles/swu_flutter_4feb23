@@ -44,7 +44,7 @@ class _MapPageState extends State<MapPage> {
       floatingActionButton: FloatingActionButton(
         onPressed: () => _controller.future.then(
           (mapController) => mapController.animateCamera(
-            CameraUpdate.newLatLngZoom(_initMap.target, 15),
+            CameraUpdate.newLatLngZoom(_newLocation.target, 15),
           ),
         ),
         child: Icon(Icons.pin_drop),
