@@ -41,3 +41,10 @@ final response  = await dio.get(url);
 final youtubeResponse  = youtubeResponseFromJson(response.data);
 emit(state.copyWith(youtubes: youtubeResponse.youtubes));
 ```
+
+
+## Day3 
+- Review BLOC
+- ListView and GridView
+- Deploy on Android and iOS Device
+- Drawer

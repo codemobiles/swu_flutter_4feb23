@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:demo0/src/bloc/home/home_bloc.dart';
 import 'package:demo0/src/bloc/login/login_bloc.dart';
 import 'package:demo0/src/constants/asset.dart';
@@ -7,16 +5,15 @@ import 'package:demo0/src/models/youtube_response.dart';
 import 'package:demo0/src/pages/app_routes.dart';
 import 'package:demo0/src/pages/home/widgets/dialog_barcode_image.dart';
 import 'package:demo0/src/pages/home/widgets/dialog_qr_image.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
-
   @override
   State<HomePage> createState() => _HomePageState();
+
+  const HomePage({Key? key}) : super(key: key);
 }
 
 class _HomePageState extends State<HomePage> {
@@ -38,9 +35,9 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        drawer: CustomDrawer(),
+        drawer: const CustomDrawer(),
         appBar: AppBar(
-          title: Text('HomePage'),
+          title: const Text('HomePage'),
           actions: [
             IconButton(
               onPressed: () {
@@ -234,6 +231,11 @@ class CustomDrawer extends StatelessWidget {
       child: Column(
         children: [
           _buildProfile(),
+          ListTile(
+            onTap: () => _showImageDialog(context), //_showDialogBarcode(context),
+            title: Text("MyDialog"),
+            leading: Icon(Icons.dialer_sip, color: Colors.deepPurple),
+          ),
           ListTile(
             onTap: () => _showDialogBarcode(context), //_showDialogBarcode(context),
             title: Text("BarCode"),
