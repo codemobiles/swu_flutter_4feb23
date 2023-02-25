@@ -286,4 +286,31 @@ class CustomDrawer extends StatelessWidget {
           ),
         ),
       );
+
+  _showImageDialog(context) {
+    showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          return Dialog(
+            child: SizedBox(
+              height: 300,
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(24.0),
+                    child: SizedBox(
+                        height: 200,
+                        child: Image.network("https://images.ctfassets.net/4cd45et68cgf/3eMfmrIlUYM4CfEPiPED1Z/42518eb222101ab8289c3d8a0b3c901b/Kim_You-jung.jpg?w=2560")),
+                  ),
+                  ElevatedButton(
+                    child: Text("Close"),
+                    onPressed: () => Navigator.pop(context),
+                  )
+                ],
+              ),
+            ),
+          );
+        });
+  }
 }
