@@ -116,6 +116,7 @@ class _MapPageState extends State<MapPage> {
         child: Icon(Icons.pin_drop),
       ),
       body: GoogleMap(
+        onTap: (position) => _buildSingleMarker(position: position),
         markers: _markers,
         mapType: MapType.hybrid,
         initialCameraPosition: _initMap,
