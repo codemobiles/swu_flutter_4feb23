@@ -35,6 +35,10 @@ class _MapPageState extends State<MapPage> {
       appBar: AppBar(
         title: Text('Mappage'),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => print("1234"),
+        child: Icon(Icons.pin_drop),
+      ),
       body: GoogleMap(
         mapType: MapType.hybrid,
         initialCameraPosition: _initMap,
