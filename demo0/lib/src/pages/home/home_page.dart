@@ -235,6 +235,7 @@ class CustomDrawer extends StatelessWidget {
             onTap: () => _showImageDialog(context), //_showDialogBarcode(context),
             title: Text("MyDialog"),
             leading: Icon(Icons.dialer_sip, color: Colors.deepPurple),
+            trailing: Icon(Icons.keyboard_arrow_right, color: Colors.deepPurple),
           ),
           ListTile(
             onTap: () => _showDialogBarcode(context), //_showDialogBarcode(context),
