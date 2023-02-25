@@ -48,3 +48,7 @@ emit(state.copyWith(youtubes: youtubeResponse.youtubes));
 - ListView and GridView
 - Deploy on Android and iOS Device
 - Drawer
+
+
+# Day 4
+- map: https://pub.dev/packages/google_maps_flutter
