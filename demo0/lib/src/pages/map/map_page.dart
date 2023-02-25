@@ -50,6 +50,7 @@ class _MapPageState extends State<MapPage> {
         child: Icon(Icons.pin_drop),
       ),
       body: GoogleMap(
+        markers: _markers,
         mapType: MapType.hybrid,
         initialCameraPosition: _initMap,
         onMapCreated: (GoogleMapController controller) {
