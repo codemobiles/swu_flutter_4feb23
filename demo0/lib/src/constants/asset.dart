@@ -1,4 +1,4 @@
-class Asset{
+class Asset {
   static const assetImage = 'assets/images';
   static const logoImage = '$assetImage/logo.png';
   static const cmLogoImage = '$assetImage/cm_logo.png';
@@ -6,4 +6,5 @@ class Asset{
   static const pinBikerImage = '$assetImage/pin_biker.png';
   static const pinMarkerImage = '$assetImage/pin_marker.png';
   static const pinCurrentImage = '$assetImage/pin_current.png';
+  static const pinSwuImage = '$assetImage/swu_icon.png';
 }

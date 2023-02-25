@@ -48,7 +48,7 @@ class _MapPageState extends State<MapPage> {
   Future<void> _loadMarker() async {
     // make map marker
     final Uint8List markerIcon = await getBytesFromAsset(
-      Asset.pinBikerImage,
+      Asset.pinSwuImage,
       width: 150,
     );
 
