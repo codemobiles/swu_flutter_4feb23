@@ -39,10 +39,13 @@ class _MapPageState extends State<MapPage> {
   ];
 
   @override
-  Future<void> initState() async {
+  initState() {
     // TODO: implement initState
     super.initState();
+    _loadMarker();
+  }
 
+  Future<void> _loadMarker() async {
     // make map marker
     final Uint8List markerIcon = await getBytesFromAsset(
       Asset.pinBikerImage,
