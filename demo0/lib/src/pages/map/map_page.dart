@@ -36,6 +36,19 @@ class _MapPageState extends State<MapPage> {
   ];
 
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    final marker = Marker(
+      markerId: MarkerId("1234"),
+      position: _initMap.target,
+    );
+    _markers.add(marker);
+    setState(() {});
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
