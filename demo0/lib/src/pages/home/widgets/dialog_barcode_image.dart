@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 class DialogBarcodeImage extends StatelessWidget {
   final String data;
-
-  const DialogBarcodeImage(this.data);
+  final Color? color;
+  const DialogBarcodeImage(this.data, {this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,7 @@ class DialogBarcodeImage extends StatelessWidget {
         // ),
         barcode: Barcode.code128(),
         data: data,
-        color: Color(0xff9e0202),
+        color: color == null ? Colors.black : color!,
         width: 200,
         drawText: true,
         errorBuilder: (cxt, err) => Center(
