@@ -2,10 +2,10 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:another_flushbar/flushbar.dart';
 import 'package:demo0/src/app.dart';
 import 'package:demo0/src/constants/asset.dart';
 import 'package:demo0/src/services/common.dart';
+import 'package:demo0/src/widgets/custom_flushbar.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -120,12 +120,7 @@ class _MapPageState extends State<MapPage> {
         final meterArea = maptoolkit.SphericalUtil.computeArea(_mapToolkitLatLng);
         final kmArea = formatCurrency.format(meterArea / (1000000));
         print("Area: $kmArea ²Km");
-        // CustomFlushbar.showSuccess(navigatorState.currentContext!, message: "Area: $kmArea ²Km");
-        Flushbar(
-          title: "Hey Ninja",
-          message: "Area: $kmArea ²Km",
-          duration: Duration(seconds: 3),
-        )..show(context);
+        CustomFlushbar.showSuccess(navigatorState.currentContext!, message: "Area: $kmArea ²Km");
       },
       strokeColor: Colors.yellow,
       fillColor: Colors.yellow.withOpacity(0.15),
