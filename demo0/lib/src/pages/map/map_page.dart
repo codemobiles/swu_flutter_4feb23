@@ -18,8 +18,8 @@ class _MapPageState extends State<MapPage> {
   );
 
   static const CameraPosition _newLocation = CameraPosition(
-    target: LatLng(13.7462463, 100.5325515),
-    zoom: 15,
+    target: LatLng(13.7443267, 100.5634739),
+    zoom: 20,
   );
 
   final Completer<GoogleMapController> _controller = Completer();
@@ -44,7 +44,7 @@ class _MapPageState extends State<MapPage> {
       floatingActionButton: FloatingActionButton(
         onPressed: () => _controller.future.then(
           (mapController) => mapController.animateCamera(
-            CameraUpdate.newLatLngZoom(_newLocation.target, 15),
+            CameraUpdate.newLatLngZoom(_newLocation.target, 20),
           ),
         ),
         child: Icon(Icons.pin_drop),
