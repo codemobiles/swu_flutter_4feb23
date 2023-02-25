@@ -18,7 +18,8 @@ class NetworkService {
   static final Dio _dio = Dio()
     ..interceptors.add(
       InterceptorsWrapper(
-        onRequest: (options, handler) {
+        onRequest: (options, handler) async {
+          // await Future.delayed(Duration(seconds: 5));
           options.baseUrl = NetworkAPI.baseURL;
           options.headers = {HttpHeaders.contentTypeHeader: "application/json"};
           return handler.next(options);
@@ -42,7 +43,7 @@ class NetworkService {
 
   Future<String> submitLocation(LatLng position) async {
     var params = {"lat": position.latitude, "lng": position.longitude};
-    Response response = await Dio().post("/submit_location", data: jsonEncode(params));
+    Response response = await _dio.post("/submit_location", data: jsonEncode(params));
     if (response.statusCode == 201) {
       return 'Submit Successfully';
     } else {
