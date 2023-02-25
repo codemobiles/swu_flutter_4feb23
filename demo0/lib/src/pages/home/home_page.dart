@@ -5,6 +5,7 @@ import 'package:demo0/src/models/youtube_response.dart';
 import 'package:demo0/src/pages/app_routes.dart';
 import 'package:demo0/src/pages/home/widgets/dialog_barcode_image.dart';
 import 'package:demo0/src/pages/home/widgets/dialog_qr_image.dart';
+import 'package:demo0/src/pages/home/widgets/dialog_scan_qrcode.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -218,13 +219,13 @@ class CustomDrawer extends StatelessWidget {
     );
   }
 
-  // void _showScanQRCode(context) {
-  //   showDialog<void>(
-  //     context: context,
-  //     barrierDismissible: true,
-  //     builder: (BuildContext dialogContext) => DialogScanQRCode(),
-  //   );
-  // }
+  void _showScanQRCode(context) {
+    showDialog<void>(
+      context: context,
+      barrierDismissible: true,
+      builder: (BuildContext dialogContext) => DialogScanQRCode(),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -249,7 +250,7 @@ class CustomDrawer extends StatelessWidget {
             leading: Icon(Icons.qr_code, color: Colors.green),
           ),
           ListTile(
-            onTap: () => print(""), //_showScanQRCode(context),
+            onTap: () => _showScanQRCode(context),
             title: Text("Scanner"),
             leading: const Icon(Icons.qr_code_scanner, color: Colors.blueGrey),
           ),
