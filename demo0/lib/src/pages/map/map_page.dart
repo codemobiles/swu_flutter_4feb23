@@ -9,6 +9,7 @@ import 'package:demo0/src/services/common.dart';
 import 'package:demo0/src/widgets/custom_flushbar.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
@@ -173,6 +174,74 @@ class _MapPageState extends State<MapPage> {
         ),
       ),
     );
+  }
+
+  bool _stopTracking() {
+    if (_locationSubscription != null) {
+      _locationSubscription?.cancel();
+      _locationSubscription = null;
+      return true;
+    }
+    return false;
+  }
+
+  Future<void> _animateCamera(LatLng latLng) async {
+    _controller.future.then((controller) {
+      controller.animateCamera(CameraUpdate.newLatLngZoom(latLng, 16));
+    });
+  }
+
+  void _trackingLocation() async {
+    // Start / Stop tracking
+    if (_stopTracking()) {
+      _markers.clear();
+      setState(() {});
+      return;
+    }
+
+    try {
+      // Check avaliablity and permission service
+      final serviceEnabled = await checkServiceGPS(_locationService);
+      if (!serviceEnabled) {
+        throw PlatformException(code: 'SERVICE_STATUS_DENIED');
+      }
+
+      final permissionGranted = await checkPermission(_locationService);
+      if (!permissionGranted) {
+        throw PlatformException(code: 'PERMISSION_DENIED');
+      }
+
+      // condition to tracking
+      await _locationService.changeSettings(
+        accuracy: LocationAccuracy.high,
+        interval: 10000,
+        distanceFilter: 15,
+      ); // meters.
+
+      _locationSubscription = _locationService.onLocationChanged.listen(
+        (locationData) async {
+          _markers.clear();
+          final latLng = LatLng(locationData.latitude!, locationData.longitude!);
+          await _buildSingleMarker(position: latLng);
+          _animateCamera(latLng);
+          setState(() {});
+        },
+      );
+    } on PlatformException catch (e) {
+      switch (e.code) {
+        case 'PERMISSION_DENIED':
+          //todo
+          break;
+        case 'SERVICE_STATUS_ERROR':
+          //todo
+          break;
+        case 'SERVICE_STATUS_DENIED':
+          //todo
+          break;
+        default:
+        //todo
+      }
+    }
   }
 
   Future<void> _zoomPolygon() async {
