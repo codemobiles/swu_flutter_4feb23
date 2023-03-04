@@ -11,6 +11,7 @@ class MapBloc extends Bloc<MapEvent, MapState> {
   MapBloc() : super(MapState(currentPosition: LatLng(13.7462463, 100.5325515))) {
     // submit
     on<MapEvent_SubmitLocation>((event, emit) async {
+      emit(state.copyWith(currentPosition: event.position));
       NetworkService().submitLocation(event.position);
     });
 
