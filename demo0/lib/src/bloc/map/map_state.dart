@@ -7,11 +7,11 @@ class MapState extends Equatable {
   });
 
   final LatLng? currentPosition;
-  final List<Location>? allLocations;
+  final List<Position>? allLocations;
 
   MapState copyWith({
     LatLng? currentPosition,
-    List<Location>? allLocations,
+    List<Position>? allLocations,
   }) {
     return MapState(
       currentPosition: currentPosition ?? this.currentPosition,
