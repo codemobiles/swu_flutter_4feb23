@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:demo0/src/models/LocationResponse.dart';
 import 'package:dio/dio.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
@@ -41,13 +42,17 @@ class NetworkService {
       ),
     );
 
-  Future<void> loadLocations() async {
-    final response = await _dio.get("/load_locations");
-    if (response.statusCode == 200) {
-      print(response.data);
-      print('Load Successfully');
-    } else {
-      print('Load Failed');
+  Future<LocationResponse?> loadLocations() async {
+    try {
+      final response = await _dio.get("/load_locations");
+      if (response.statusCode == 200) {
+        final result = LocationResponse.fromJson(response.data);
+        return result;
+      } else {
+        return null;
+      }
+    } catch (e) {
+      return null;
     }
   }
 
