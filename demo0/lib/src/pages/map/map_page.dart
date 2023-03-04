@@ -55,6 +55,13 @@ class _MapPageState extends State<MapPage> {
     _buildPolygon();
   }
 
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    _stopTracking();
+  }
+
   String formatPosition(LatLng pos) {
     final lat = formatCurrency.format(pos.latitude);
     final lng = formatCurrency.format(pos.longitude);
@@ -147,11 +154,15 @@ class _MapPageState extends State<MapPage> {
         title: Text('Mappage'),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => _controller.future.then(
-          (mapController) => mapController.animateCamera(
-            CameraUpdate.newLatLngZoom(_newLocation.target, 20),
-          ),
-        ),
+        onPressed: () {
+          // _controller.future.then(
+          //       (mapController) => mapController.animateCamera(
+          //     CameraUpdate.newLatLngZoom(_newLocation.target, 20),
+          //   ),
+          // );
+
+          _trackingLocation();
+        },
         child: Icon(Icons.pin_drop),
       ),
       body: BlocListener<MapBloc, MapState>(
