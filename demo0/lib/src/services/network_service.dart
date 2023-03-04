@@ -41,6 +41,16 @@ class NetworkService {
       ),
     );
 
+  Future<void> loadLocations() async {
+    final response = await _dio.get("/load_locations");
+    if (response.statusCode == 200) {
+      print(response.data);
+      print('Load Successfully');
+    } else {
+      print('Load Failed');
+    }
+  }
+
   Future<String> submitLocation(LatLng position) async {
     var params = {"lat": position.latitude, "lng": position.longitude};
     Response response = await _dio.post("/submit_location", data: jsonEncode(params));

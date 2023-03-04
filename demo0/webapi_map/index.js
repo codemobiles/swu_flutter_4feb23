@@ -4,7 +4,7 @@ app.use(express.json())
 
 
 var positions = []
-app.get("/", (req, res)=>{
+app.get("/load_locations", (req, res)=>{
     res.json({count: positions.length, positions})
 })
 
