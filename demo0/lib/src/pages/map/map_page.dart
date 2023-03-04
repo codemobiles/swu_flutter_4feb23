@@ -195,6 +195,6 @@ class _MapPageState extends State<MapPage> {
   }
 
   void _loadLocations() {
-    NetworkService().loadLocations();
+    context.read<MapBloc>().add(MapEvent_LoadLocation());
   }
 }
