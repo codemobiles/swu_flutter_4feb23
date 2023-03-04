@@ -57,10 +57,10 @@ dependencies:
   firebase_messaging: ^14.0.2
 
 flutter_icons:
-  android: "ic_launcher_round"
-  ios: false
+  android: false
+  ios: true
   remove_alpha_ios: true
-  image_path: "assets/icon/logo_cm_app_circle.png"
+  image_path: "assets/icon/logo_cm_app_square.png"
 
 
 dev_dependencies:
