@@ -52,3 +52,13 @@ emit(state.copyWith(youtubes: youtubeResponse.youtubes));
 
 # Day 4
 - map: https://pub.dev/packages/google_maps_flutter
+- barcode workshop
+- qrcode workshop
+- barcode and qrcode scanner
+- setup google map
+- set map position
+- add map marker, multiple markers, polygon
+- calculate polygon area
+- send map position to server
+- nodejs express 
+- http interceptor
