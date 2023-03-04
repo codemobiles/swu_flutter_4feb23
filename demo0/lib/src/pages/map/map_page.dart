@@ -153,18 +153,7 @@ class _MapPageState extends State<MapPage> {
         ],
         title: Text('Mappage'),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // _controller.future.then(
-          //       (mapController) => mapController.animateCamera(
-          //     CameraUpdate.newLatLngZoom(_newLocation.target, 20),
-          //   ),
-          // );
-
-          _trackingLocation();
-        },
-        child: Icon(Icons.pin_drop),
-      ),
+      floatingActionButton: _buildTrackingButton(),
       body: BlocListener<MapBloc, MapState>(
         listener: (context, state) {
           state.allLocations?.forEach((position) {
