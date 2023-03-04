@@ -284,6 +284,23 @@ class _MapPageState extends State<MapPage> {
     );
   }
 
+  Widget _buildTrackingButton() {
+    final isTracking = _locationSubscription != null;
+    return Padding(
+      padding: const EdgeInsets.only(right: 50.0),
+      child: FloatingActionButton.extended(
+        onPressed: _trackingLocation,
+        label: BlocBuilder<MapBloc, MapState>(
+          builder: (context, state) {
+            return Text(isTracking ? 'Stop Tracking ${formatPosition(state.currentPosition ?? LatLng(0, 0))}' : 'Start Tracking');
+          },
+        ),
+        backgroundColor: isTracking ? Colors.red : Colors.blue,
+        icon: Icon(isTracking ? Icons.stop : Icons.play_arrow),
+      ),
+    );
+  }
+
   void _loadLocations() {
     context.read<MapBloc>().add(MapEvent_LoadLocation());
   }
