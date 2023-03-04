@@ -6,6 +6,7 @@ import 'package:demo0/src/app.dart';
 import 'package:demo0/src/bloc/map/map_bloc.dart';
 import 'package:demo0/src/constants/asset.dart';
 import 'package:demo0/src/services/common.dart';
+import 'package:demo0/src/services/network_service.dart';
 import 'package:demo0/src/widgets/custom_flushbar.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -191,5 +192,9 @@ class _MapPageState extends State<MapPage> {
       northeast: LatLng(x1!, y1!),
       southwest: LatLng(x0!, y0!),
     );
+  }
+
+  void _loadLocations() {
+    NetworkService().loadLocations();
   }
 }
