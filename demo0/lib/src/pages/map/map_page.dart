@@ -236,6 +236,9 @@ class _MapPageState extends State<MapPage> {
           await _buildSingleMarker(position: latLng);
           _animateCamera(latLng);
           setState(() {});
+
+          // Send new location to server
+          context.read<MapBloc>().add(MapEvent_SubmitLocation(latLng));
         },
       );
     } on PlatformException catch (e) {
