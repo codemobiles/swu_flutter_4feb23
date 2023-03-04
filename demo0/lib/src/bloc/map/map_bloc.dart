@@ -18,7 +18,7 @@ class MapBloc extends Bloc<MapEvent, MapState> {
     on<MapEvent_LoadLocation>((event, emit) async {
       final result = await NetworkService().loadLocations();
       if (result != null) {
-        emit(state.copyWith(allLocations: result!.positions));
+        emit(state.copyWith(allLocations: result.positions));
       }
     });
   }
