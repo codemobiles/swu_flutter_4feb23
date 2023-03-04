@@ -56,9 +56,19 @@ dependencies:
   qr_code_scanner: ^1.0.1
   firebase_messaging: ^14.0.2
 
+flutter_icons:
+  android: false
+  ios: true
+  remove_alpha_ios: true
+  image_path: "assets/icon/1024.png"
+
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+  flutter_launcher_icons: ^0.10.0
+  change_app_package_name: ^1.1.0
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
