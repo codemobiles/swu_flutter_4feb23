@@ -6,7 +6,6 @@ import 'package:demo0/src/app.dart';
 import 'package:demo0/src/bloc/map/map_bloc.dart';
 import 'package:demo0/src/constants/asset.dart';
 import 'package:demo0/src/services/common.dart';
-import 'package:demo0/src/services/network_service.dart';
 import 'package:demo0/src/widgets/custom_flushbar.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -154,16 +153,24 @@ class _MapPageState extends State<MapPage> {
         ),
         child: Icon(Icons.pin_drop),
       ),
-      body: GoogleMap(
-        onTap: (position) => _buildSingleMarker(position: position),
-        markers: _markers,
-        polygons: _polygons,
-        mapType: MapType.hybrid,
-        trafficEnabled: true,
-        initialCameraPosition: _initMap,
-        onMapCreated: (GoogleMapController controller) {
-          _controller.complete(controller);
+      body: BlocListener<MapBloc, MapState>(
+        listener: (context, state) {
+          state.allLocations?.forEach((position) {
+            _markers.clear();
+            _buildSingleMarker(position: LatLng(position.lat, position.lng));
+          });
         },
+        child: GoogleMap(
+          onTap: (position) => _buildSingleMarker(position: position),
+          markers: _markers,
+          polygons: _polygons,
+          mapType: MapType.hybrid,
+          trafficEnabled: true,
+          initialCameraPosition: _initMap,
+          onMapCreated: (GoogleMapController controller) {
+            _controller.complete(controller);
+          },
+        ),
       ),
     );
   }
